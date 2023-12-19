@@ -90,12 +90,12 @@ func (c *TelegramClient) callSend() {
 
 }
 
-func CallTelegram(StringConfigZero string, setting entity.Setting) error {
+func CallTelegram(text string, setting entity.Setting) error {
 	fmt.Println("curl Telegram...")
-	fmt.Println(StringConfigZero)
+	fmt.Println(text)
 
 	// make GET request to API to get user by ID
-	telegramUrl := "https://api.telegram.org/bot" + setting.BotToken + "/sendMessage?chat_id=" + setting.ChatID + "&text=" + url.QueryEscape(StringConfigZero)
+	telegramUrl := "https://api.telegram.org/bot" + setting.BotToken + "/sendMessage?chat_id=" + setting.ChatID + "&text=" + url.QueryEscape(text)
 
 	// fmt.Println(telegramUrl)
 
