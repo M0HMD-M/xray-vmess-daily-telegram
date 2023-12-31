@@ -1,3 +1,6 @@
+# Warning This method is deprecated 
+
+
 # Xray Reality Daily Telegram
 Xray Reality with send configuration in the telegram channel every day.This project send Xray Reality configuration to your channel base on schedule.<br />
 
