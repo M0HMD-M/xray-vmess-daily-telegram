@@ -1,108 +1,132 @@
 {
-    "log": {
-        "loglevel": "warning"
+ "log": {
+  "loglevel": "warning"
+ },
+ "inbounds": [
+  {
+   "listen": null,
+   "port": 8080,
+   "protocol": "vmess",
+   "settings": {
+    "clients": [
+     {
+      "email": "Test-Config-Amesterdam",
+      "id": "6e4620cd-598a-4434-8256-4a06f7dbd319"
+     }
+    ]
+   },
+   "sniffing": {
+    "destOverride": [
+     "http",
+     "tls",
+     "quic",
+     "fakedns"
+    ],
+    "enabled": true
+   },
+   "streamSettings": {
+    "network": "tcp",
+    "security": "none",
+    "sockopt": {
+     "acceptProxyProtocol": false,
+     "mark": 0,
+     "tcpFastOpen": true,
+     "tproxy": "off"
     },
-    "inbounds": [
-        {
-            "listen": null,
-            "port": 443,
-            "protocol": "vmess",
-            "settings": {
-                "clients": [
-                    {
-                        "email": "Sarina",
-                        "id": "28208267-f427-4a8f-a6de-f641a7f04793"
-                    }
-                ]
-            },
-            "sniffing": {
-                "destOverride": [
-                    "http",
-                    "tls",
-                    "quic",
-                    "fakedns"
-                ],
-                "enabled": true
-            },
-            "streamSettings": {
-                "network": "tcp",
-                "security": "none",
-                "sockopt": {
-                    "acceptProxyProtocol": false,
-                    "mark": 0,
-                    "tcpFastOpen": true,
-                    "tproxy": "off"
-                },
-                "tcpSettings": {
-                    "acceptProxyProtocol": false,
-                    "header": {
-                        "request": {
-                            "headers": {
-                                "Host": [
-                                    "mashhad1.irancell.ir,shiraz1.irancell.ir,tabriz1.irancell.ir,speedtest1.irancell.ir,ahvaz1.irancell.ir,esfahan1.irancell.ir,server-9889.prod.hosts.ooklaserver.net,server-10076.prod.hosts.ooklaserver.net,server-9795.prod.hosts.ooklaserver.net,server-4317.prod.hosts.ooklaserver.net"
-                                ]
-                            },
-                            "method": "GET",
-                            "path": [
-                                "/download",
-                                "/upload"
-                            ]
-                        },
-                        "response": {
-                            "headers": {
-                                "Connection": [
-                                    "Keep-Alive"
-                                ],
-                                "Content-Length": [
-                                    "109"
-                                ],
-                                "Content-Type": [
-                                    "text/html"
-                                ]
-                            },
-                            "reason": "OK",
-                            "status": "200",
-                            "version": "1.1"
-                        },
-                        "type": "http"
-                    }
-                }
-            },
-            "tag": "inbound-8080"
-        }
-    ],
-    "outbounds": [
-        {
-            "tag": "direct",
-            "protocol": "freedom",
-            "settings": {}
-        },
-        {
-            "tag": "block",
-            "protocol": "blackhole",
-            "settings": {}
-        }
-    ],
-    "routing": {
-        "domainStrategy": "IPOnDemand",
+    "tcpSettings": {
+     "acceptProxyProtocol": false,
+     "header": {
+      "request": {
+       "headers": {
+        "Host": [
+         "server-4317.prod.hosts.ooklaserver.net,server-9889.prod.hosts.ooklaserver.net,ahvaz1.irancell.ir,server-10076.prod.hosts.ooklaserver.net"
+        ]
+       },
+       "method": "POST",
+       "path": [
+        "/upload"
+       ]
+      },
+      "response": {
+       "headers": {
+        "Connection": [
+         "keep-alive"
+        ],
+        "Content-Length": [
+         "173"
+        ],
+        "Content-Type": [
+         "text/html"
+        ]
+       },
+       "reason": "Not Found",
+       "status": "200",
+       "version": "1.1"
+      },
+      "type": "http"
+     }
+    }
+   },
+   "tag": "inbound-8080"
+  }
+ ],
+ "routing": {
+  "domainStrategy": "IPOnDemand",
         "rules": [
             {
-                "type": "field",
-                "ip": [
-                    "geoip:cn",
-                    "geoip:ir"
+                "geoip": [
+                    "cn",
+                    "ir",
+                    "private"
                 ],
-                "outboundTag": "block"
+                "outbound": "block"
             },
             {
-                "type": "field",
-                "domain": [
-                    "geosite:category-porn"
-                ],
-                "outboundTag": "block"
-            }
-        ]
-    },
-    "stats": {},
-    "transport": null
+                "outbound": "block",
+                "geosite": [
+                    "category-ads-all"
+                ]
+            },
+            {
+                "outbound": "block",
+                "ip_cidr": [
+                    "0.0.0.0/8",
+                    "10.0.0.0/8",
+                    "100.64.0.0/10",
+                    "127.0.0.0/8",
+                    "169.254.0.0/16",
+                    "172.16.0.0/12",
+                    "192.0.0.0/24",
+                    "192.0.2.0/24",
+                    "192.168.0.0/16",
+                    "198.18.0.0/15",
+                    "198.51.100.0/24",
+                    "203.0.113.0/24",
+                    "::1/128",
+                    "fc00::/7",
+                    "fe80::/10"
+                ]
+            },
+            {
+                "outbound": "block",
+                "network": "tcp",
+                "port": [
+                    25,
+                    587,
+                    465,
+                    2525
+                ]
+            },
+ "outbounds": [
+  {
+   "tag": "direct",
+   "protocol": "freedom",
+   "settings": {}
+  },
+  {
+   "tag": "block",
+   "protocol": "blackhole",
+   "settings": {}
+  }
+ ]
 }
