@@ -1,12 +1,13 @@
 {
     "port": 443,
-    "bot_token" : "627442321431:bga9g_13IQBuAcDb3DSemBceracA-KDFS3b",
-    "chat_id" : "-1003385273232",
+    "bot_token" : "5948471671:AAHcPWjSfAAkOUYFeXg1HAUn7SuaxwNNb4",
+    "chat_id" : "-100193237423",
     "dynamic_subscription" : false,
-    "channel_name" : "Sarina_Esmailzadeh",
-    "send_vnstat" : false,
+    "channel_name" : "Test-Config-Amesterdam",
+    "send_vnstat" : true,
     "aggregate_subscriptions" : [],
     "send_configuration" : "first",
-    "send_subscriptions" : true,
+    "send_subscriptions" : false,
     "random_header" : true
+
  }
