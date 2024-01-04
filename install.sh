@@ -14,7 +14,7 @@ sudo chmod +x $install_dir/reinstall.sh
 sudo chmod +x $install_dir/make_subscribe.sh
 
 rm -rf $install_dir/xray-telegram*
-wget https://github.com/majidrezarahnavard/xray-vmess-daily-telegram/releases/download/v.1.2.1/xray-telegram
+wget https://github.com/M0HMD-M/xray-vmess-daily-telegram/releases/download/v1/xray-telegram
 sudo chmod +x ./xray-telegram
 
 #instal monitoring
