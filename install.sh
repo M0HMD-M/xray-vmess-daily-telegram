@@ -4,10 +4,10 @@
 install_dir=/root/xray-configuration
 cd $install_dir
 
-wget https://raw.githubusercontent.com/majidrezarahnavard/xray-vmess-daily-telegram/main/config.json
-wget https://raw.githubusercontent.com/majidrezarahnavard/xray-vmess-daily-telegram/main/reinstall.sh
-wget https://raw.githubusercontent.com/majidrezarahnavard/xray-vmess-daily-telegram/main/setting.json
-wget https://raw.githubusercontent.com/majidrezarahnavard/xray-vmess-daily-telegram/main/make_subscribe.sh
+wget https://raw.githubusercontent.com/M0HMD-M/xray-vmess-daily-telegram/main/config.json
+wget https://raw.githubusercontent.com/M0HMD-M/xray-vmess-daily-telegram/main/reinstall.sh
+wget https://raw.githubusercontent.com/M0HMD-M/xray-vmess-daily-telegram/main/setting.json
+wget https://raw.githubusercontent.com/M0HMD-M/xray-vmess-daily-telegram/main/make_subscribe.sh
 
 #add permitions
 sudo chmod +x $install_dir/reinstall.sh
