@@ -211,7 +211,7 @@ func (b *Builder) SetBlock() *Builder {
 
 	b.newVmess.Routing.Rules[1] = entity.Rule{
 		Type:        "field",
-		Domain:      []string{"geosite:category-porn"},
+		Domain:      []string{"geosite:category-ads-all"},
 		OutboundTag: "block",
 	}
 
